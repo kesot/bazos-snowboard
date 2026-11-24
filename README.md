@@ -25,6 +25,16 @@ pip install -r requirements.txt
 
 ## Usage
 
+With no arguments, `python scraper.py` searches
+
+```
+https://sport.bazos.cz/snowboard/?hledat=snowboard&hlokalita=&humkreis=25&cenaod=&cenado=&order=
+```
+
+That's the keyword "snowboard" in the snowboard category, anywhere in the Czech
+Republic, at any price, with the regex `.*`. Every ad on every page is listed. The
+25 km radius only applies once you set `--location`.
+
 ```bash
 # 160–175 cm boards, 1 000–6 000 Kč, within 50 km of Praha 1 (postal code 11000)
 python scraper.py "(?<!\d)(16[0-9]|17[0-5])(?!\d)" --location 11000 --radius 50 --price-from 1000 --price-to 6000
